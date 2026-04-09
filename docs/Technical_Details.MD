@@ -37,7 +37,6 @@ UI -> Controller -> Interface -> Service -> Interface -> DAO -> DB.
 - **GitHub** - Strong platform for team collaboration, version control, and sharing the codebase.
 - **GitHub Flow** - **Pros:** clean, maintainable, and reliable workflow; enforces code reviews and protects `main` from bad commits. **Con:** may be too technical for non-technical teammates.
 - **GitHub Actions** - Integrated with GitHub, easy to set up, and useful for automated testing and CI.
-- **CodeRabbit** - It acts like an automated tutor. It checks our code for obvious mistakes before we waste time reviewing it manually, which speeds up our workflow.
 - **Flyway** - Automates database `schema migrations`. Flyway syncs the database version across everyone’s computer.
 - **JUnit 6** - Easy-to-use framework for `automated integration testing`.
 - **AssertJ** - Makes `JUnit assertions` more readable, maintainable, and easier to debug.

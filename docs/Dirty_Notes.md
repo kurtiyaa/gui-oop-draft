@@ -34,7 +34,6 @@ Q1. We want to practice Clean Architecture and Industry standards by separating 
 - **Security**: BCrypt for password hashing + salting.
 - **Testing**: JUnit integration tests for key workflows.
 - **CI Pipeline**: GitHub Actions.
-- **PR Review Automation**: CodeRabbit.
 - **Packaging/Distribution**: `jpackage` to produce an app-image build for demo/use.
 
 **SCRAPPED IDEA (DUE TO: OFFLINE, AND PROJECT SCOPE CONSTRAINTS)**:
@@ -49,12 +48,10 @@ Q1. We want to practice Clean Architecture and Industry standards by separating 
 - **REST API syncing** (out of scope for single-user desktop app)
 - **Dependabot** (automated dependency updates)
 - **removed module-info** (jlink issue with SQLite JDBC automatic modules)
-- **Testing tools removed** (JaCoCo, Checkstyle, Mockito, Testcontainers, TestFX, JReleaser - out of scope)
+- **Testing tools removed** (Checkstyle, Mockito, Testcontainers, TestFX, JReleaser - out of scope)
+- **CodeRabbit** (automated code review assistant - out of scope)
 
 ## NOTES FOR STEPHEN
-
-- dont put sql logic or business logic in JavaFx controller
-- prioritize Component Isolation
 
 **AI NOTES:**
 

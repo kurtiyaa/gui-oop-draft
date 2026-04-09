@@ -6,7 +6,7 @@ An academic team project developed on GitHub to showcase a polished Java 25 desk
   - Java 25 Full JDK Bellsoft Liberica
   - Maven + JavaFx
   - SQLite JDBC + Flyway
-  - Github + CodeRabbit
+  - Github + GitHub Flow + GitHub Actions
   - Github Actions - JUnit + AssertJ + Spotless + Spotbugs + Jacoco
   - Github Release with Zip compression release.
 
