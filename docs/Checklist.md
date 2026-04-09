@@ -26,6 +26,7 @@
 
 ### Primary Features (Required)
 
+- [ ] Session Context: The application should maintain a session context to track the logged-in user and their interactions across different screens.
 - [ ] Login Screen with username and password fields, and a login button.
 - [ ] Registration Screen with username, password, confirm password fields, and a register button.
 - [ ] Main Screen with a list of items with an add to cart button and a logout button.
