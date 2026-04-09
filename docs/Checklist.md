@@ -1,0 +1,53 @@
+# System Checklist
+
+## System Requirements
+
+### Project Setup
+
+- [ ] Github main protected branch with required PR reviews and status checks.
+- [ ] Maven wrapper configured for consistent build and dependency management across all environments.
+- [ ] JavaFX dependencies properly set up in the Maven `pom.xml` file.
+
+### Architectural Principles
+
+- [ ] Modular Monolith structure to keep the codebase organized and maintainable.
+- [ ] Clean Architecture with clear separation of concerns (UI, Controller, Service, DAO, Model; MVC + Service + Dao).
+- [ ] Dependency Injection to manage object creation and dependencies.
+
+### Technology Stack
+
+- [ ] Java 25 LTS + Maven + JavaFX for the application.
+- [ ] SQLite with JDBC for local database storage + Flyway for database migrations.
+- [ ] GitHub Flow for version control and collaboration.
+- [ ] GitHub Actions for CI with JUnit, AssertJ, Spotless, SpotBugs, and Jacoco.
+- [ ] jpackage for packaging the application for distribution.
+
+## Application Requirements
+
+### Primary Features (Required)
+
+- [ ] Login Screen with username and password fields, and a login button.
+- [ ] Registration Screen with username, password, confirm password fields, and a register button.
+- [ ] Main Screen with a list of items with an add to cart button and a logout button.
+- [ ] Cart Screen with a list of items that have been added to the cart, quantity selectors, and a checkout button.
+- [ ] Checkout Screen with a summary of the order, payment options, and a confirm button.
+
+### Extra Features (Optional)
+
+- [ ] Design: A visually appealing and user-friendly interface with consistent styling and responsive design.
+- [ ] Promotions/Sale/Discounts: A seasonal promotion system that applies discounts to certain products or categories during checkout.
+- [ ] Promotion Codes: Allow users to enter promo codes for discounts during checkout.
+- [ ] Product Search: A search bar on the main screen to filter items by name or category.
+- [ ] Product Categories: Organize items into categories (e.g., Electronics, Clothing) for easier browsing.
+- [ ] Product images: Display images for each product in the product list and product details view.
+- [ ] Product Views: A screen when tapped, shows where users can view detailed information about a product, including images, descriptions, and reviews.
+- [ ] Product Reviews: Allow users to leave reviews and ratings for products they have purchased.
+- [ ] Order History: A screen where users can view their past orders and details.
+- [ ] User Profile: A screen where users can view and edit their profile information, such as username and password.
+- [ ] Seller Features: A separate interface for sellers to add/edit products, view sales, and manage inventory.
+
+### Security and Validation
+
+- [ ] Input Validation: Ensure all user inputs are validated on to prevent invalid data and potential security vulnerabilities such as SQL Injection.
+- [ ] Password Hashing: Use BCrypt to securely hash and salt user passwords before storing them in the database.
+- [ ] Error Handling: Implement comprehensive error handling to gracefully handle exceptions and provide user-friendly error messages.

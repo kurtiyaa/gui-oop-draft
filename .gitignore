@@ -1,0 +1,50 @@
+# Maven / Java build output and SQL database file
+target/
+*.class
+dependency-reduced-pom.xml
+shopfx.db
+
+# NetBeans generated files
+nbactions.xml
+nbproject/genfiles/
+nbproject/private/
+nbproject/build-impl.xml
+nbbuild/
+dist/
+
+# IDE settings
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.nbactions.xml
+
+
+# OS clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+*.orig
+
+# Local environment and secret files
+.env
+.env.*
+
+# Misc generated metadata
+.classpath
+.project
+.settings/
+
+#Personal files
+*.pdf
+prompts.md
+projects.md
+context.md

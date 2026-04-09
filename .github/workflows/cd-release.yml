@@ -1,0 +1,95 @@
+name: cd-release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release version (e.g. 1.2.3)"
+        required: true
+
+env:
+  app_name: GUI-OOP-Draft-APP
+  artifact_id: gui-oop-draft
+  main_class: Launcher
+  app_version: 1.0.0
+  dist_dir: target/dist
+
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main'
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: "25"
+          distribution: "liberica"
+          cache: "maven"
+
+      - name: Build and Test
+        shell: pwsh
+        run: |
+          .\mvnw.cmd clean verify -B -ntp
+
+      - name: Prepare JPackage Input
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path target/jpackage-input | Out-Null
+          Copy-Item -Path target/${{ env.artifact_id }}-${{ env.app_version }}.jar -Destination target/jpackage-input/
+          .\mvnw.cmd dependency:copy-dependencies -DoutputDirectory=target/jpackage-input
+
+      - name: Create App Image
+        shell: pwsh
+        run: |
+          jpackage --type app-image `
+            --name "${{ env.app_name }}" `
+            --input target/jpackage-input `
+            --main-jar ${{ env.artifact_id }}-${{ env.app_version }}.jar `
+            --main-class ${{ env.main_class }} `
+            --runtime-image "$env:JAVA_HOME" `
+            --dest ${{ env.dist_dir }}
+
+      - name: Zip App Image
+        shell: pwsh
+        run: |
+          Compress-Archive -Path ${{ env.dist_dir }}/* -DestinationPath ${{ env.app_name }}-Windows.zip -Force
+
+      - name: Upload Release Asset
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.app_name }}-Windows
+          path: ${{ env.app_name }}-Windows.zip
+
+      - name: Cleanup Build Files
+        shell: pwsh
+        run: |
+          Remove-Item -Path target/jpackage-input -Recurse -Force
+          Remove-Item -Path ${{ env.dist_dir }} -Recurse -Force
+
+  release:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.app_name }}-Windows
+          path: artifacts
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: "v${{ github.event.inputs.version }}-win"
+          name: "Windows Release ${{ github.event.inputs.version }}"
+          files: artifacts/${{ env.app_name }}-Windows.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
