@@ -10,9 +10,8 @@
 
 ### Architectural Principles
 
-- [ ] Modular Monolith structure to keep the codebase organized and maintainable.
+- [ ] Layered Monolith structure to keep the codebase organized and maintainable.
 - [ ] Clean Architecture with clear separation of concerns (UI, Controller, Service, DAO, Model; MVC + Service + Dao).
-- [ ] Dependency Injection to manage object creation and dependencies.
 
 ### Technology Stack
 
@@ -24,7 +23,7 @@
 
 ## Application Requirements
 
-### Primary Features (Required)
+### MVP - Minimum Viable Product (Required)
 
 - [ ] Session Context: The application should maintain a session context to track the logged-in user and their interactions across different screens.
 - [ ] Login Screen with username and password fields, and a login button.
@@ -32,10 +31,10 @@
 - [ ] Main Screen with a list of items with an add to cart button and a logout button.
 - [ ] Cart Screen with a list of items that have been added to the cart, quantity selectors, and a checkout button.
 - [ ] Checkout Screen with a summary of the order, payment options, and a confirm button.
+- [ ] Design: A visually appealing and user-friendly interface with consistent styling and responsive design.
 
 ### Extra Features (Optional)
 
-- [ ] Design: A visually appealing and user-friendly interface with consistent styling and responsive design.
 - [ ] Promotions/Sale/Discounts: A seasonal promotion system that applies discounts to certain products or categories during checkout.
 - [ ] Promotion Codes: Allow users to enter promo codes for discounts during checkout.
 - [ ] Product Search: A search bar on the main screen to filter items by name or category.
@@ -43,12 +42,13 @@
 - [ ] Product images: Display images for each product in the product list and product details view.
 - [ ] Product Views: A screen when tapped, shows where users can view detailed information about a product, including images, descriptions, and reviews.
 - [ ] Product Reviews: Allow users to leave reviews and ratings for products they have purchased.
+- [ ] Payment methods: Support fake multiple payment options eg. Credit Card, Cash on Delivery, GCash, etc. (no real payment processing needed).
 - [ ] Order History: A screen where users can view their past orders and details.
-- [ ] User Profile: A screen where users can view and edit their profile information, such as username and password.
-- [ ] Seller Features: A separate interface for sellers to add/edit products, view sales, and manage inventory.
+- [ ] User Profile: A screen where users can view and edit their profile information, such as email and password.
 
 ### Security and Validation
 
-- [ ] Input Validation: Ensure all user inputs are validated on to prevent invalid data and potential security vulnerabilities such as SQL Injection.
-- [ ] Password Hashing: Use BCrypt to securely hash and salt user passwords before storing them in the database.
-- [ ] Error Handling: Implement comprehensive error handling to gracefully handle exceptions and provide user-friendly error messages.
+- [ ] Input Validation: Ensure all user inputs are validated on to prevent invalid data and potential security vulnerabilities such as SQL Injection. Use `prepared statements` for all database interactions.
+- [ ] Password Hashing: Use BCrypt to securely `hash and salt` user passwords before storing them in the database.
+- [ ] Error Handling: Implement comprehensive `error handling` to gracefully handle exceptions and provide user-friendly error messages.
+- [ ] Immutable Data Structures: Use immutable data structures where we don't want other data such as username to be changed after creation, only password can be updated only via `SQL update statement`, not by getter/setter methods.
