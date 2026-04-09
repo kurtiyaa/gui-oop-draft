@@ -114,8 +114,10 @@ If you use Command prompt, you could use `mvnw.cmd` instead of `./mvnw` or `.\mv
    - Delete the branch after merge to keep the repository clean.
 
 9. Return to `main` and repeat for the next task.
-   - Switch back to `main` in VS Code.
-   - Pull the latest changes before starting the next branch.
+   - Switch back to `main` in VS Code with `git checkout main`.
+   - Pull the latest changes before starting the next branch with `git pull`.
+   - Run `git fetch --prune` to clean up any deleted branches from the remote repository.
+   - Delete the local branch after merge to keep your workspace clean: `git branch -d feature/my-task`.
    - Repeat the same flow for each new feature or fix.
 
 ---
