@@ -21,7 +21,7 @@ UI -> Controller -> Interface -> Service -> Interface -> DAO -> DB.
 
 ## Why's of Architectural decision + Software Design Pattern
 
-- **Modular/Layered Monolith:** Keeps deployment simple as one application while still separating features into clear modules, so the codebase stays maintainable.
+- **Layered Monolith:** Keeps deployment simple as one application while still separating features into clear layers, so the codebase stays maintainable.
 - **Monorepo:** Stores all project parts in one repository, making dependency/version alignment, cross-module refactors, and shared standards easier for the whole team.
 - **MVC + Service:** Separates UI concerns (View/Controller) from business logic (Service), improving testability, readability, and long-term maintainability.
 - **Dependency Injection:** Manages object creation and dependencies, promoting loose coupling and easier testing.
