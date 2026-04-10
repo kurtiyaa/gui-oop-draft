@@ -1,24 +1,138 @@
 package controller;
 
-import java.io.IOException;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
+import java.io.IOException;
+import java.sql.*;
 
 public class LoginController {
 
     @FXML
+    private Label modeLabel;
+    @FXML
     private TextField usernameField;
     @FXML
     private PasswordField passwordField;
+    @FXML
+    private Button primaryBtn;
+    @FXML
+    private Button toggleBtn;
+
+    private boolean isLoginMode = true;
+    private static final String DB_URL = "jdbc:sqlite:shop.db";
+
 
     @FXML
     private void handlePrimary() throws IOException {
-    }
+        String username = usernameField.getText().trim();
+        String password = passwordField.getText().trim();
 
+        if(username.isEmpty() || password.isEmpty()){
+            showAlert(AlertType.ERROR, "Error", "Please fill in all fields !");
+            return;
+        }
+
+        if(isLoginMode){
+            // LOGIN SUCCESS
+            if(authenticate(username, password)){
+                showAlert(AlertType.INFORMATION, "Sucess", "Login Successful! Welcome to ShopFX!");
+                //setroot(go back to main)
+                //clearfields
+            } else {
+                showAlert(AlertType.ERROR, "Error", "Invalid username or password!");
+            }
+        } else {
+            //REGISTER mode
+            if(register(username, password)){
+                showAlert(AlertType.INFORMATION, "Success", "Account created! You can now login!");
+                handleToggle();
+            } else{
+                showAlert(AlertType.ERROR, "Error", "Username already exists! Enter a unique one.");
+            }
+        }
+    }
     @FXML
     private void handleToggle() {
+        isLoginMode = !isLoginMode;
+
+        if(isLoginMode){
+            modeLabel.setText("Sign In");
+            primaryBtn.setText("Login");
+            toggleBtn.setText("Register");
+        } else{
+            modeLabel.setText("Sign Up");
+            primaryBtn.setText("Register");
+            toggleBtn.setText("Login");
+        }
+
+        usernameField.clear();
+        passwordField.clear();
+
+    }
+
+    private boolean authenticate(String username, String password ){
+        String sql = "SELECT password FROM users WHERE username = ?";
+        try( Connection conn = getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)){
+
+            stmt.setString(1, username);
+            ResultSet rs = stmt.executeQuery();
+
+            if(rs.next()){
+                return rs.getString("password").equals(password);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+
+    }
+
+    private boolean register(String username, String password){
+        String checksql = "SELECT username FROM users WHERE username = ?";
+        try(Connection conn = getConnection();
+            PreparedStatement stmt = conn.prepareStatement(checksql)){
+            stmt.setString(1, username);
+            if(stmt.executeQuery().next()){
+                return false;
+            }
+
+    }   catch(Exception e){
+        e.printStackTrace();
+        return false;
+    }
+
+    // Inserting new users
+    String insertSql = "INSERT INTO users (username, password) VALUES(?, ?)";
+    try(Connection conn = getConnection();
+        PreparedStatement stmt = conn.prepareStatement(insertSql)){
+
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+            stmt.executeUpdate();
+            return true;
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
+    }
+
+
+
+    private Connection getConnection() throws SQLException{
+        return DriverManager.getConnection(DB_URL);
+    }
+    private void showAlert(Alert.AlertType type, String title, String message){
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
 }
