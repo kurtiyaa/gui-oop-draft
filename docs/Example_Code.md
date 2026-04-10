@@ -9,7 +9,6 @@ public class User {
         this.username = username;
         this.passwordHash = passwordHash;
     }
-    // Getters only, no setters to keep immutability (except for password update via service)
     public String getUsername() { return username; }
     public String getPasswordHash() { return passwordHash; }
 }
