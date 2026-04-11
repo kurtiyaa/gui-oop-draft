@@ -4,7 +4,11 @@
 
 ### Project Setup
 
+- [ ] Readme file created with project overview, roles, prerequisites, and development instructions.
+- [ ] Layered Monolith project structure diagram created to outline the organization of the codebase. and how the different layers (UI, Controller, Service, DAO, Model) interact with each other.
+- [ ] ER Diagram created to visualize the database schema and relationships between entities.
 - [ ] Github main protected branch with required PR reviews and status checks.
+- [ ] GitHub Actions workflow set up for CI with JUnit, AssertJ, Spotless, SpotBugs, and Jacoco.
 - [ ] Maven wrapper configured for consistent build and dependency management across all environments.
 - [ ] JavaFX dependencies properly set up in the Maven `pom.xml` file.
 
@@ -26,7 +30,7 @@
 ### MVP - Minimum Viable Product (Required)
 
 - [ ] Session Context: The application should maintain a session context to track the logged-in user and their interactions across different screens.
-- [ ] Login Screen with username and password fields, and a login button.
+- [ ] Login Screen with username and password fields, and a login button. The login process should validate the credentials against the database and establish a session context upon successful authentication.
 - [ ] Registration Screen with username, password, confirm password fields, and a register button.
 - [ ] Main Screen with a list of items with an add to cart button and a logout button.
 - [ ] Cart Screen with a list of items that have been added to the cart, quantity selectors, and a checkout button.

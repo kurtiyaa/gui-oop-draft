@@ -19,7 +19,7 @@ Q1. We want to practice Clean Architecture and Industry standards by separating 
 - group mates might not be technical
 - the app all itself is only expecting 1 user
 - i will do less of the coding an managing the achitectural system integrity and peer code reviews
-- we will present the app live in class with my laptop probably offline
+- we will present the app live in class with my laptop offline
 
 **PROJECT ARCHITECHTURE:**
 
@@ -76,7 +76,7 @@ The Pro Move: You create a CartService. The controller says CartService.addItem(
 
 ---
 
-## PERSONAL STRUGGLES
+## PERSONAL STRUGGLES (FIXED)
 
 - debugged jpackage not packaging with app-image, turns out the freaking thing wasnt pointing to the whole jdk, it was building runtimes without the main components to run the jvm "JVM not found error" or something, had to debug in like 4 hours even with ai assisted debugging session. (lesson learnt, have ai have the terminal if tough, for reading context off codebase but limit what it do like writing to the terminal only. only write to vscode where it can ask for permission for. and also i should provide a prompt checklist for debugging sessions that could be very helpful and speedup the process even with prompted context, specific, and clarifications question driven by AI.)
 

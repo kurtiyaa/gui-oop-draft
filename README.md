@@ -2,7 +2,23 @@
 
 An academic team project developed on GitHub to showcase a polished Java 25 desktop application built with Maven, JavaFX, SQLite, and GitHub Actions for automated testing, verification, building, and release workflows.
 
-- **Tools:**
+## Background
+
+- **College**: Developed at Pampanga State University at our `1st Year`, `Computer Engineering` course at a `OOP Class`.
+- **Project Description**: This project is a final Project for an Object-Oriented Programming class, where the goal is to create a Java desktop application with a database. The project is designed to be overdelivered and overengineered to impress the professor and demonstrate a strong understanding of software architecture, design patterns, and best practices.
+
+### Collaborators
+
+   - **Stephen Macabulos** - Group Leader, Platform Engineer, Lead Architect, and Reviewer
+   - **Erin Cuence** - Frontend Developer and Designer
+   - **Kurt Yaya** - Backend Developer and Backend Manager + Reviewer
+   - **Justine Castro** - Backend Developer
+   - **Rhian Ramirez** - Backend Developer
+
+---
+
+## Toolstack
+
   - Java 25 Full JDK Bellsoft Liberica
   - Maven + JavaFx
   - SQLite JDBC + Flyway
@@ -10,7 +26,6 @@ An academic team project developed on GitHub to showcase a polished Java 25 desk
   - Github Actions - JUnit + AssertJ + Spotless + Spotbugs + Jacoco
   - Github Release with Zip compression release.
 
----
 
 ## Roles
 
@@ -73,11 +88,11 @@ If you use Command prompt, you could use `mvnw.cmd` instead of `./mvnw` or `.\mv
 1. Start from a clean `main` branch.
    - In VS Code, open the **Source Control** view.
    - Make sure there are no unfinished local changes before you begin.
-   - The "Pull Before You Push" Mantra:
+   - The "Pull Before You Push" Discipline:
      1. Check group chat for claiming then claim yourself making sure no conflicts on agreed upon changes
      2. Git checkout main -> git pull
-     3. Git checkout feature/my-task -> git rebase main
-     4. Solve the conflicts locally. (If you see 'REBASING' in your branch name and get stuck, run: git rebase --abort to return to safety.)
+     3. Git checkout feature/my-task -> git merge main
+     4. Solve the conflicts locally.
 
 2. Create a short-lived branch for the task.
    - In the lower-left corner of VS Code, click the current branch name.
