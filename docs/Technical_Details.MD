@@ -15,33 +15,42 @@ This project relies on a focused DevOps toolchain to keep development, validatio
 2. Controller: Translates UI events into backend operations and updates the UI with results.
 3. Service: Contains business logic and rules, orchestrating operations between the UI and data access
 4. DAO: Handles database interactions, isolating persistence logic from business logic.
-5. Database: SQLite for local data storage, accessed via JDBC.
+5. Model: Plain data objects representing entities in the application (e.g., User, Product).
+6. Database: SQLite for local data storage, accessed via JDBC.
 
-UI -> Controller -> Interface -> Service -> Interface -> DAO -> DB.
+UI <-> Controller <-> Service <-> DAO <-> Model -> DB.
+                                            |
+<--------------------------------------------
+
+## Constraints and Assumptions
+
+- This is a grouped project in a OOP class, cheating frameworks (Electron) might be not allowed.
+- Groupmates are likely using Windows.
+- Group mates are non-technical.
+- The app itself is only expecting 1 user.
+- Peers are expected to code and leader is to be managing the architectural system integrity and alternate peer code reviews.
+- We will present the app live in class with my laptop offline.
 
 ## Why's of Architectural decision + Software Design Pattern
 
-- **Layered Monolith:** Keeps deployment simple as one application while still separating features into clear layers, so the codebase stays maintainable.
 - **Monorepo:** Stores all project parts in one repository, making dependency/version alignment, cross-module refactors, and shared standards easier for the whole team.
-- **MVC + Service:** Separates UI concerns (View/Controller) from business logic (Service), improving testability, readability, and long-term maintainability.
-- **Dependency Injection:** Manages object creation and dependencies, promoting loose coupling and easier testing.
-- **Dao:** Isolates database access from business logic, so persistence changes are localized and data operations are easier to test and review.
-- **Strategies:** Encapsulates interchangeable algorithms/behaviors behind a common interface, making feature variation cleaner and reducing conditional-heavy code.
+- **Layered Monolith:** Keeps deployment simple as one application while still separating features into clear layers, so the codebase stays maintainable.
+- **MVC + Service + Dao:** Seperates concerns clearly. The UI (View) is only responsible for displaying data and gathering user input. The Controller is a thin layer that translates UI events into backend operations. The Service contains the business logic and rules, orchestrating operations between the UI and data access. The DAO handles database interactions, isolating persistence logic from business logic. This structure promotes maintainability, testability, and scalability.
 
 ## Why's of Tools and Frameworks used
 
 - **Java 25 LTS (Liberica Full)** - A full JDK distribution for complete development, not a stripped-down runtime. Java 25 LTS is modern and stable for long-term development.
 - **JavaFX** - Modern and popular desktop UI framework with many available learning resources.
-- **Maven** - Chosen for simplicity and predictability. It ensures every developer uses the exact same dependencies. **Con:** FXML usage can feel complex for some team members.
-- **SQLite + JDBC** - Best for a local, simplified, and portable database setup. JDBC is used because Java needs a compatible driver to interact with SQLite. **Con:** less feature-rich than PostgreSQL.
+- **Maven** - Chosen for simplicity and predictability. It ensures every developer uses the exact same dependencies.
+- **SQLite + JDBC** - Best for a local, simplified + embedded, and portable database setup. JDBC is used because Java needs a compatible driver to interact with SQLite. **Con:** less feature-rich than PostgreSQL. Not ideal for multi-user or complex relational data, but sufficient for this project’s scope.
 - **GitHub** - Strong platform for team collaboration, version control, and sharing the codebase.
 - **GitHub Flow** - **Pros:** clean, maintainable, and reliable workflow; enforces code reviews and protects `main` from bad commits. **Con:** may be too technical for non-technical teammates.
 - **GitHub Actions** - Integrated with GitHub, easy to set up, and useful for automated testing and CI.
 - **Flyway** - Automates database `schema migrations`. Flyway syncs the database version across everyone’s computer.
+- **BCrypt** - Used for secure password hashing. BCrypt is intentionally slow and includes built-in salting, which makes brute-force and rainbow-table attacks much harder than plain hashing methods.
 - **JUnit 6** - Easy-to-use framework for `automated integration testing`.
 - **AssertJ** - Makes `JUnit assertions` more readable, maintainable, and easier to debug.
-- **BCrypt** - Used for secure password hashing. BCrypt is intentionally slow and includes built-in salting, which makes brute-force and rainbow-table attacks much harder than plain hashing methods.
-- **SpotBugs** - `Static analysis tool` used to detect likely bugs and risky code patterns early, before runtime failures.
+- **SpotBugs** - `Static analysis tool` used to detect likely bugs, unused and risky imports, and risky code patterns early, before runtime failures.
 - **Spotless** - Enforces `consistent code formatting` automatically, reducing style-related review noise and keeping the codebase clean.
 - **Jacoco** - `Code coverage` measurement tool that tracks which parts of the codebase are tested, helping identify untested code and improve test quality.
 

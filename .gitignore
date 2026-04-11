@@ -19,6 +19,7 @@ dist/
 *.iws
 .vscode/
 .nbactions.xml
+agents/
 
 
 # OS clutter
