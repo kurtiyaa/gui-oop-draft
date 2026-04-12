@@ -7,25 +7,31 @@ An academic team project developed on GitHub to showcase a polished Java 25 desk
 - **College**: Developed at Pampanga State University at our `1st Year`, `Computer Engineering` course at a `OOP Class`.
 - **Project Description**: This project is a final Project for an Object-Oriented Programming class, where the goal is to create a Java desktop application with a database. The project is designed to be overdelivered and overengineered to impress the professor and demonstrate a strong understanding of software architecture, design patterns, and best practices.
 
+## Constraints and Assumptions
+
+- OOP class project; non-cheating frameworks only (no Electron).
+- Windows-based team with non-technical groupmates.
+- Single-user application.
+- Live presentation on offline laptop.
+
 ### Collaborators
 
-   - **Stephen Macabulos** - Group Leader, Platform Engineer, Lead Architect, and Reviewer
-   - **Erin Cuence** - Frontend Developer and Designer
-   - **Kurt Yaya** - Backend Developer and Backend Manager + Reviewer
-   - **Justine Castro** - Backend Developer
-   - **Rhian Ramirez** - Backend Developer
+- **Stephen Macabulos** - Group Leader, Platform Engineer, Lead Architect, and Reviewer
+- **Erin Cuence** - Frontend Developer and Designer
+- **Kurt Yaya** - Backend Developer and Backend Manager + Reviewer
+- **Justine Castro** - Backend Developer
+- **Rhian Ramirez** - Backend Developer
 
 ---
 
 ## Toolstack
 
-  - Java 25 Full JDK Bellsoft Liberica
-  - Maven + JavaFx
-  - SQLite JDBC + Flyway
-  - Github + GitHub Flow + GitHub Actions
-  - Github Actions - JUnit + AssertJ + Spotless + Spotbugs + Jacoco
-  - Github Release with Zip compression release.
-
+- Java 25 Full JDK Bellsoft Liberica
+- Maven + JavaFx
+- SQLite JDBC + Flyway
+- Github + GitHub Flow + GitHub Actions
+- Github Actions - JUnit + AssertJ + Spotless + Spotbugs + Jacoco
+- Github Release with Zip compression release.
 
 ## Roles
 
