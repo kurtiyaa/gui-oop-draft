@@ -56,3 +56,4 @@
 - [ ] Password Hashing: Use BCrypt to securely `hash and salt` user passwords before storing them in the database.
 - [ ] Error Handling: Implement comprehensive `error handling` to gracefully handle exceptions and provide user-friendly error messages.
 - [ ] Immutable Data Structures: Use immutable data structures where we don't want other data such as username to be changed after creation, only password can be updated only via `SQL update statement`, not by getter/setter methods.
+- [ ] Test Coverage: Aim for high test coverage with unit tests for all service and DAO methods, SQL Injection tests, and integration tests for critical user flows (e.g., registration, login, checkout).
