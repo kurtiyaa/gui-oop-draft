@@ -1,3 +1,4 @@
+package controller;
 
 import java.io.IOException;
 
@@ -10,6 +11,8 @@ import javafx.stage.Stage;
 public class App extends Application {
 
     private static Scene scene;
+
+    public static Object controller;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -26,8 +29,16 @@ public class App extends Application {
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/" + fxml + ".fxml"));
+
+        Parent parent = fxmlLoader.load();
+        controller = fxmlLoader.getController();
+
+        return parent;
+    }
+
+    public static Object getController(){
+        return controller;
     }
 
     public static void main(String[] args) {

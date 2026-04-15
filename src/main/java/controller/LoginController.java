@@ -1,9 +1,7 @@
 package controller;
 
-
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 import java.io.IOException;
@@ -40,8 +38,16 @@ public class LoginController {
             // LOGIN SUCCESS
             if(authenticate(username, password)){
                 showAlert(AlertType.INFORMATION, "Sucess", "Login Successful! Welcome to ShopFX!");
-                //setroot(go back to main)
-                //clearfields
+
+                App.setRoot("main");
+
+                Object ctrl = App.getController();
+                if(ctrl instanceof MainController mainCtrl){
+                    mainCtrl.setCurrentUser(username);
+                }
+
+                clearFields();
+
             } else {
                 showAlert(AlertType.ERROR, "Error", "Invalid username or password!");
             }
@@ -135,4 +141,31 @@ public class LoginController {
         alert.showAndWait();
     }
 
+    private void clearFields(){
+        usernameField.clear();;
+        passwordField.clear();
+    }
+
+    private void ensureDatabaseExists() {
+        String createUsersTable = """
+            CREATE TABLE IF NOT EXISTS users (
+                user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+                username VARCHAR(50) NOT NULL UNIQUE,
+                password VARCHAR(50) NOT NULL
+            );
+        """;
+
+        try (Connection conn = getConnection();
+             Statement stmt = conn.createStatement()) {
+            stmt.execute(createUsersTable);
+        } catch (Exception e) {
+            System.out.println("Failed to create tables!");
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void initialize(){
+        ensureDatabaseExists();
+    }
 }
