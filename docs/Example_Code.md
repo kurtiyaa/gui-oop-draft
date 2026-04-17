@@ -4,9 +4,38 @@
 
 ---
 
+## Application Flow
+
+1. UI: JavaFX screens and user interactions
+2. Controller: Translates UI events into backend operations and updates the UI with results.
+3. Service: Contains business logic and rules, orchestrating operations between the UI and data access
+4. DAO: Handles database interactions, isolating persistence logic from business logic.
+5. Model: Plain data objects representing entities in the application (e.g., User, Product).
+6. Database: SQLite for local data storage, accessed via JDBC.
+
+### WFolder Structure (ASCII Diagram)
+
+```
+src
+└── main
+        ├── java
+        │   ├── controller   // Controllers (e.g., LoginController.java)
+        │   ├── dao          // DAOs (e.g., UserDAO.java)
+        │   ├── service      // Services (e.g., AuthService.java)
+        │   └── model        // Models (e.g., User.java)
+        └── resources
+                ├── db
+                │   └── migration   // SQL migration scripts
+                ├── login.fxml      // UI layout
+                └── style.css       // Styles
+```
+
+---
+
 ### 1. The JavaFX FXML UI (The Eyes and Ears)
+
 Only user interaction and display logic lives here.  
-*This is not runnable code. It’s an architectural pattern.*
+_This is not runnable code. It’s an architectural pattern._
 
 ```java
 // Layer: UI
@@ -24,6 +53,7 @@ public class LoginView {
 ---
 
 ### 2. The Controller (The Nervous System)
+
 Only triggers. "User clicked button."  
 Check for nulls, empty strings, or invalid input here, but no business logic.
 
@@ -49,6 +79,7 @@ public class LoginController {
 ---
 
 ### 3. The DAO (The Hand)
+
 Only SQL lives here. Database access code, mapping ResultSets to Models, and nothing else.
 
 ```java
@@ -71,6 +102,7 @@ public class UserDAO {
 ---
 
 ### 4. The Service (The Brain)
+
 Only business rules here. "Check if password matches," "Hash the password."
 
 ```java
@@ -99,8 +131,9 @@ public class AuthService {
 ---
 
 ### 5. Models (The Data Carriers)
+
 Plain data objects with no logic. Just getters, setters, and constructors.  
-*Immutable models are preferred. If you must mutate, document why.*
+_Immutable models are preferred. If you must mutate, document why._
 
 ```java
 // Layer: Model
@@ -121,6 +154,7 @@ public class User {
 ---
 
 ### 6. Database (The Storage)
+
 SQLite accessed via JDBC. No SQL queries outside of the DAO.
 
 ```sql
@@ -131,27 +165,8 @@ CREATE TABLE users (
     password TEXT NOT NULL
 );
 ```
-*Note: Use prepared statements for all database interactions to prevent SQL injection.*
 
----
-
-### 7. Folder Structure (ASCII Diagram)
-
-
-```
-src
-└── main
-        ├── java
-        │   ├── controller   // Controllers (e.g., LoginController.java)
-        │   ├── dao          // DAOs (e.g., UserDAO.java)
-        │   ├── service      // Services (e.g., AuthService.java)
-        │   └── model        // Models (e.g., User.java)
-        └── resources
-                ├── db
-                │   └── migration   // SQL migration scripts
-                ├── login.fxml      // UI layout
-                └── style.css       // Styles
-```
+_Note: Use prepared statements for all database interactions to prevent SQL injection._
 
 ---
 

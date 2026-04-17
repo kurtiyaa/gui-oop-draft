@@ -5,23 +5,6 @@
 
 ---
 
-## Overview
-
-This project relies on a focused DevOps toolchain to keep development, validation, review, and release consistent.
-
-## Application Flow
-
-1. UI: JavaFX screens and user interactions
-2. Controller: Translates UI events into backend operations and updates the UI with results.
-3. Service: Contains business logic and rules, orchestrating operations between the UI and data access
-4. DAO: Handles database interactions, isolating persistence logic from business logic.
-5. Model: Plain data objects representing entities in the application (e.g., User, Product).
-6. Database: SQLite for local data storage, accessed via JDBC.
-
-UI <-> Controller <-> Service <-> DAO <-> Model -> DB.
-                                            |
-<--------------------------------------------
-
 ## Constraints and Assumptions
 
 - This is a grouped project in a OOP class, cheating frameworks (Electron) might be not allowed.
