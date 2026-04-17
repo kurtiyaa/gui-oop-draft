@@ -52,31 +52,6 @@ Q1. We want to practice Clean Architecture and Industry standards by separating 
 - **Testing tools removed** (Checkstyle, Mockito, Testcontainers, TestFX, JReleaser - out of scope)
 - **CodeRabbit** (automated code review assistant - out of scope)
 
-## NOTES FOR STEPHEN
-
-**AI NOTES:**
-
-Even with FXML, 90% of students fail because they build "Fat Controllers."
-
-- The Sin: If your Controller.java has a Connection conn = DriverManager.getConnection(...) inside an @FXML method,
-  you have failed as an Architect.
-- The Architecture Way: Your Controller should be a "Thin Layer." It should only gather data from the UI and pass it
-  to a Service or Repository class.
-- The "Pro" Standard: In Big Tech (e.g., building trading terminals or desktop IDEs), we use Dependency Injection
-  (DI) (like Google Guice or Spring) to inject these services into the Controller. Since you're just starting, manual
-  "Constructor Injection" or a "Service Registry" is fine, but never let your UI logic touch your DB logic.
-
-JavaFX is powerful, but it's a Stateful UI.
-_ The Trap: Most beginners put their SQL logic or Business Logic inside the JavaFX Controller.
-_ The Harsh Truth: If I see a ResultSet or an INSERT statement inside your .java file that handles a "Button Click," \* The Architecture Way: Use the MVC (Model-View-Controller) or MVVM pattern. Your Controller should only talk to a "Service Layer," which talks to a "Repository Layer" (SQLite). Decouple or Die.
-
-Instead of controllers talking directly to the DAOs (e.g., StoreController calling CartDao.addOrIncrement()), they would introduce a Service Layer.
-
-Why? The Controller should only know about JavaFX UI events (button clicks, text fields). The DAO should only know about SQL queries (INSERT, SELECT).
-The Pro Move: You create a CartService. The controller says CartService.addItem(user, product). The Service handles the business logic (Does the user have enough money? Is the product in stock?) and then calls the DAO. This keeps your architecture pristine, heavily decoupled, and much easier for your groupmates to work on without stepping on each other's toes.
-
----
-
 ## PERSONAL STRUGGLES (FIXED)
 
 - debugged jpackage not packaging with app-image, turns out the freaking thing wasnt pointing to the whole jdk, it was building runtimes without the main components to run the jvm "JVM not found error" or something, had to debug in like 4 hours even with ai assisted debugging session. (lesson learnt, have ai have the terminal if tough, for reading context off codebase but limit what it do like writing to the terminal only. only write to vscode where it can ask for permission for. and also i should provide a prompt checklist for debugging sessions that could be very helpful and speedup the process even with prompted context, specific, and clarifications question driven by AI.)
@@ -86,3 +61,5 @@ The Pro Move: You create a CartService. The controller says CartService.addItem(
 - constantly paranoid of contrainst to use javafx fxml and using external dependencies because of vauge description of criteria of my professor.
 
 - github flow to perfectly managed a team project with non technical groupmates, and also trying to do a overengineered project with a lot of moving parts, code reviews, and also manage the github flow process. it is a lot of work and responsibility on my shoulders, and it is hard to kinda balance everything and also try to learn new things along the way.
+
+- to be a leader is to be responsible for the success and failure of the project, and it is a lot of pressure. it is a lot of work and responsibility, but it is also a great learning experience.

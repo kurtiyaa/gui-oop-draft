@@ -1,7 +1,5 @@
 # Contributing Guide (For Everyone)
 
-**If you get stuck, ask in the group chat.**
-
 ## Quick Start and Prerequisites
 
 - See the README.md for how to set up and run the project.
