@@ -1,0 +1,29 @@
+erDiagram
+    users {
+        integer user_id PK "User ID"
+        varchar name "User Name"
+        varchar email "User Email"
+        varchar password "User Password"
+    }
+    categories {
+        integer category_id PK "Category ID"
+        varchar category_name "Category Name"
+    }
+    products {
+        integer product_id PK "Product ID"
+        varchar name "Product Name"
+        varchar description "Product Description"
+        integer price "Product Price"
+        integer stock_quantity "Stock Quantity"
+        integer category_id FK "Category ID"
+    }
+    cart_items {
+        integer item_id PK "Cart Item ID"
+        integer user_id FK "User ID"
+        integer product_id FK "Product ID"
+        integer quantity "Quantity"
+    }
+    users ||--o{ cart_items : contains
+    products ||--o{ cart_items : contains
+    categories ||--o{ products : contains
+}

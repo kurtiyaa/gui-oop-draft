@@ -4,7 +4,7 @@
 
 ## Mermaid Diagrams
 
-1. Simple Application Flow Diagram
+1. Simple Application Flow
    - This diagram illustrates the flow of the application, showing how the different layers (UI, Controller, Service, DAO, Model) interact with each other and with the database.
 
 ```mermaid
@@ -30,7 +30,7 @@ flowchart LR
     classDef context stroke:#fb923c,fill:#fff7ed
 ```
 
-2. Checklist Mind Map Diagram
+2. Checklist Mind Map
    - This diagram represents the checklist of architectural and design considerations that were taken into account during the development of the project. It serves as a reminder of the key principles and best practices that guided the architectural decisions.
 
 ```mermaid
@@ -82,32 +82,36 @@ mindmap
         Test Coverage
 ```
 
-3. ERD Diagram v1
+3. ERD v1
    - This diagram shows the Entity-Relationship Diagram (ERD) of the database schema, illustrating the tables, their attributes, and the relationships between them.
 
-```sql
-Table users {
-  user_id integer [primary key, increment]
-  username varchar(50) [not null, unique]
-  password varchar(50) [not null] // Plain text for now
-}
-
-Table products {
-  product_id integer [primary key, increment]
-  name varchar(100) [not null]
-  description text
-  price integer [not null]
-  stock_quantity integer [default: 10]
-}
-
-Table cart_items {
-  id integer [primary key, increment]
-  user_id integer [ref: > users.user_id]
-  product_id integer [ref: > products.product_id]
-  quantity integer [default: 1]
-
-  indexes {
-    (user_id, product_id) [unique]
-  }
-}
+```mermaid
+erDiagram
+    users {
+        integer user_id PK "User ID"
+        varchar name "User Name"
+        varchar email "User Email"
+        varchar password "User Password"
+    }
+    categories {
+        integer category_id PK "Category ID"
+        varchar category_name "Category Name"
+    }
+    products {
+        integer product_id PK "Product ID"
+        varchar name "Product Name"
+        varchar description "Product Description"
+        integer price "Product Price"
+        integer stock_quantity "Stock Quantity"
+        integer category_id FK "Category ID"
+    }
+    cart_items {
+        integer item_id PK "Cart Item ID"
+        integer user_id FK "User ID"
+        integer product_id FK "Product ID"
+        integer quantity "Quantity"
+    }
+    users ||--o{ cart_items : contains
+    products ||--o{ cart_items : contains
+    categories ||--o{ products : contains
 ```
