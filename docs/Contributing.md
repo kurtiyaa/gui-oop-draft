@@ -41,6 +41,7 @@ If unsure, copy the style of existing code.
 ### Step-by-Step (All in VS Code)
 
 1. Start from a clean `main` branch.
+   - **Note:** The `main` branch is protected. You cannot push directly to it. You must create a branch for your work.
    - Open the **Source Control** panel (left sidebar, or Ctrl+Shift+G).
    - Make sure you have no unfinished changes (commit or discard them).
    - Click the branch name (bottom left), switch to `main`.
@@ -57,7 +58,7 @@ If unsure, copy the style of existing code.
 
 4. Stage and commit your changes.
    - In **Source Control**, click the `+` next to each file you want to include.
-   - Write a short commit message (e.g., `fix: login button validation`).
+   - Write a short conventional commit message (e.g., `fix: login button validation`, `feat: add sql login functionality`).
    - Click the checkmark (✔) to commit.
 
 5. Push your branch to GitHub.
@@ -77,36 +78,49 @@ If unsure, copy the style of existing code.
 
 ---
 
-## How to Handle Merge Conflicts (Step-by-Step)
+## Troubleshooting & Common Mistakes
+
+### Failsafe: Accidentally Committed to Main and not to another branch?
+
+If you made changes or a commit on `main` by mistake (and can’t push because it’s protected), don’t worry! Here’s how to fix it:
+
+1. **Create a new branch from your current state:**
+   - Click the branch name (bottom left), choose **Create new branch**.
+   - Name it for your task (e.g., `feature/your-task`).
+
+2. **Your changes and commits will move to the new branch.**
+
+3. **Continue working as usual:**
+   - Push your new branch.
+   - Open a pull request (or not if changes is not ready for main branch).
+
+### Merge Conflict Example
 
 Merge conflicts happen when two people change the same part of a file. Don’t panic—they’re normal in group projects! Here’s how to fix them in VS Code:
 
-### 1. When You See a Conflict
+1.  You pull the latest code from `main` into your branch, and there’s a conflict because someone else changed the same file.
+    - VS Code will show a message at the top: **"This branch has conflicts that must be resolved"** or you’ll see files marked as **conflicted** in Source Control.
+    - The file will have special markers like:
 
-- VS Code will show a message at the top: **"This branch has conflicts that must be resolved"** or you’ll see files marked as **conflicted** in Source Control.
-- The file will have special markers like:
+    ```text
+    <<<<<<< HEAD
+    your changes here
+    =======
+    their changes here
+    >>>>>>> branch-name
+    ```
 
-```text
-<<<<<<< HEAD
-your changes here
-=======
-their changes here
->>>>>>> branch-name
-```
+2.  Open the Conflicted File
+    - Click the conflicted file in the Source Control panel.
+    - VS Code will highlight the conflict and show options like **Accept Current Change**, **Accept Incoming Change**, **Accept Both Changes**, or **Compare Changes**.
 
-### 2. Open the Conflicted File
+3.  Choose How to Resolve
+    - **Accept Current Change**: Keep your version (the code you wrote).
+    - **Accept Incoming Change**: Take the other person’s version (the code from GitHub or main).
+    - **Accept Both Changes**: Keep both sets of changes (VS Code will combine them; you may need to clean up extra lines).
+    - **Compare Changes**: See a side-by-side view to understand the differences before deciding.
 
-- Click the conflicted file in the Source Control panel.
-- VS Code will highlight the conflict and show options like **Accept Current Change**, **Accept Incoming Change**, **Accept Both Changes**, or **Compare Changes**.
-
-### 3. Choose How to Resolve
-
-- **Accept Current Change**: Keep your version (the code you wrote).
-- **Accept Incoming Change**: Take the other person’s version (the code from GitHub or main).
-- **Accept Both Changes**: Keep both sets of changes (VS Code will combine them; you may need to clean up extra lines).
-- **Compare Changes**: See both versions side by side before deciding.
-
-**Tip:** If you’re not sure, click **Compare Changes** and read both versions. Pick the one that makes sense, or combine them manually.
+      **Tip:** If you’re not sure, click **Compare Changes** and read both versions. Pick the one that makes sense, or combine them manually.
 
 ### 4. Clean Up the File
 
