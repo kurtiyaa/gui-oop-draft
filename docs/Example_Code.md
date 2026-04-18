@@ -168,6 +168,20 @@ CREATE TABLE users (
 
 _Note: Use prepared statements for all database interactions to prevent SQL injection._
 
+
+## Engineering Standards 101
+
+1. Prompt AI to be your mentor. Do not let it generate code for you that you don't understand.
+2. Build your intuition and knowledge. What, Why and How. (Use AI to effectively teach and explain to you)
+3. Search for resources you could find, if having trouble. Prompt a Cheat sheet of what you need to know for a concise summary.
+4. Follow best coding principles
+   - DRY (Don’t Repeat Yourself): If you find yourself copying and pasting the same code in two or more places, stop and find a better way. (eg. Functions)
+   - KISS (Keep It Simple, Stupid): The simplest solution is often the best. Avoid unnecessary complexity.
+   - YAGNI (You Ain't Gonna Need It): Don’t add features until you actually need them. Focus on the core functionality first.
+   - Security: Ensure you don't leave any cracks for the hacker to exploit.
+   - Readability: Descriptive naming and simple structure make code easier for others to understand.
+   - Maintainability: Well-structured code simplifies our future.
+
 ---
 
 **This is an architectural reference. Adapt the patterns, not the literal code.**
