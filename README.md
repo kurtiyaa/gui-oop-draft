@@ -15,7 +15,7 @@ An academic team project developed on GitHub to showcase a polished E-Commerce J
 - Responsive JavaFX UI with FXML and CSS styling.
 - SQLite database with Flyway for migrations.
 
-## Application Usage Example
+## Demo Application Usage Example (Not Development Environment)
 
 The github releases page contains the latest release of the project. You can download zip file of the app-image of the latest release and run the executable file to run the project and can be run without needing to download java.
 
@@ -26,7 +26,7 @@ The github releases page contains the latest release of the project. You can dow
 ## Background
 
 - **College**: Developed at Pampanga State University at our `1st Year`, `Computer Engineering` course at a `OOP Class`.
-- **Project Description**: This project is a final Project for an Object-Oriented Programming class, where the goal is to create a Java desktop application with a database. The project is designed to be overdelivered and overengineered to impress the professor and demonstrate a strong understanding of software architecture, design patterns, and best practices.
+- **Project Description**: This project is a final Project for an Object-Oriented Programming class, where the goal is to create a Java desktop application with a database.
 
 ## Constraints and Assumptions
 
@@ -68,7 +68,7 @@ The github releases page contains the latest release of the project. You can dow
 
 ## Roles
 
-- **FRONTEND** - ./src/main/resources and also some of the ./src/main/java/controller folders responsible for JavaFX screens, layout composition, styling, fxml and css editing, and the overall user experience.
+- **FRONTEND** - ./src/main/resources and also some of the ./src/main/java/controller folders (to add debug buttons) responsible for JavaFX screens, layout composition, styling, fxml and css editing, and the overall user experience.
 - **BACKEND** - ./src/main/java and ./src/main/java/controller folders responsible for database access, business rules, validation, frontend and backend connection, and application state management.
 
 Controllers act as the bridge between these two areas, translating user actions into backend operations and updating the UI with the results.
@@ -113,9 +113,7 @@ Use these commands when developing locally:
 ./mvnw clean verify
 ```
 
-**Automated tests run on every push on main via GitHub Actions. See Actions tab for results.**
-
-**refer to the [Contributing Guide](docs/Contributing.md) for more detailed instructions on how to set up and contribute to the project.**
+**refer to the [Contributing Guide](docs/Contributing.md) for more detailed instructions on how to get started and contribute to the project.**
 
 ## Troubleshooting and Help
 

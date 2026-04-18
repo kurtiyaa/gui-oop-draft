@@ -4,22 +4,29 @@
 
 - See the README.md for how to set up and run the project.
 
+## Your Task and Responsibilities
+
+- Each team member will be assigned specific features or components to work on (e.g., login functionality, product listing, cart management).
+- You are responsible for implementing your assigned features according to the project.
+- Refer to the [Example_Code](docs/Example_Code.md) for examples of how to structure your code according to the layered architecture we discussed.
+
 ## Code Conventions (How to Write Code)
 
 - Use **camelCase** for variables and methods.
 - Use **PascalCase** for class names.
-- Keep code simple and short.
-
-**Example:**
+  **Example:**
 
 ```java
-// Good Example
-public class LoginController {
-   private String userName;
-   public void checkLogin() {
-      // ...
+public class LoginController { // Class name in 'P'ascal'C'ase
+   private String userName; // Variable name in camel'C'ase
+
+   public void checkLogin() { // Method name in camel'C'ase
+      // Your code here
+   }
+   // ...
    }
 }
+
 ```
 
 If unsure, copy the style of existing code.
@@ -161,3 +168,7 @@ Merge conflicts happen when two people change the same part of a file. Don’t p
 
 - **Still stuck?**
   - Don’t waste time—ask in the group chat. Screenshots help!
+
+```
+
+```
