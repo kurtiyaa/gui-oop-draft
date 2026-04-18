@@ -2,8 +2,8 @@
 -- USERS TABLE
 CREATE TABLE IF NOT EXISTS users (
     user_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(50) NOT NULL -- Plain text for now
+    username VARCHAR(63) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL -- Plain text for now
 );
 
 -- PRODUCTS TABLE

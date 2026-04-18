@@ -1,0 +1,20 @@
+---
+config:
+  layout: elk
+---
+flowchart LR
+    LoginScreen["Login Screen (UI)"] --> LoginController["LoginController"]
+    LoginController --> AuthService["LoginService"]
+    AuthService --> UserDAO["UserDAO"] & SessionContext(("Session Context"))
+    UserDAO --> Database[("SQLite DB")]
+
+     LoginScreen:::ui
+     LoginController:::logic
+     AuthService:::logic
+     UserDAO:::data
+     Database:::data
+     SessionContext:::context
+    classDef ui stroke:#818cf8,fill:#eef2ff
+    classDef logic stroke:#2dd4bf,fill:#f0fdfa
+    classDef data stroke:#a78bfa,fill:#f5f3ff
+    classDef context stroke:#fb923c,fill:#fff7ed

@@ -1,40 +1,79 @@
 # Java 25 LTS Desktop application with Database Finals Project Overdelivery Edition
 
-An academic team project developed on GitHub to showcase a polished Java 25 desktop application built with Maven, JavaFX, SQLite, and GitHub Actions for automated testing, verification, building, and release workflows.
+## Project Overview
+
+An academic team project developed on GitHub to showcase a polished E-Commerce Java 25 desktop application built with Maven, JavaFX, SQLite, and GitHub Actions for automated testing, verification, building, and release workflows.
+
+## Features
+
+- User Registration and Login with secure password hashing (BCrypt).
+- Product Catalog with search and filtering.
+- Shopping Cart with add/remove functionality.
+- Image handling for products.
+- Checkout Process with order summary and confirmation.
+- Order History and Management.
+- Responsive JavaFX UI with FXML and CSS styling.
+- SQLite database with Flyway for migrations.
+
+## Application Usage Example
+
+The github releases page contains the latest release of the project. You can download zip file of the app-image of the latest release and run the executable file to run the project and can be run without needing to download java.
+
+- Run the executable file in the downloaded zip file.
+- The app will open with the login screen. You can register a new account or login with an existing account.
+- After logging in, you will see the main screen with a list of products. You can add products to your cart, view your cart, and proceed to checkout.
 
 ## Background
 
 - **College**: Developed at Pampanga State University at our `1st Year`, `Computer Engineering` course at a `OOP Class`.
 - **Project Description**: This project is a final Project for an Object-Oriented Programming class, where the goal is to create a Java desktop application with a database. The project is designed to be overdelivered and overengineered to impress the professor and demonstrate a strong understanding of software architecture, design patterns, and best practices.
 
+## Constraints and Assumptions
+
+- OOP class project; non-cheating frameworks only (no Electron).
+- Windows-based team with non-technical groupmates.
+- Single-user application.
+- Live presentation on offline laptop.
+
 ### Collaborators
 
-   - **Stephen Macabulos** - Group Leader, Platform Engineer, Lead Architect, and Reviewer
-   - **Erin Cuence** - Frontend Developer and Designer
-   - **Kurt Yaya** - Backend Developer and Backend Manager + Reviewer
-   - **Justine Castro** - Backend Developer
-   - **Rhian Ramirez** - Backend Developer
+- **Stephen Macabulos** - Group Leader, Platform Engineer, Lead Architect, and Reviewer
+- **Erin Cuenco** - Frontend Developer and Designer
+- **Kurt Yaya** - Backend Developer and Backend Manager + Reviewer
+- **Justine Castro** - Backend Developer
+- **Rhian Ramirez** - Backend Developer
 
 ---
 
-## Toolstack
+## Toolstack + Architecture Summary
 
-  - Java 25 Full JDK Bellsoft Liberica
-  - Maven + JavaFx
-  - SQLite JDBC + Flyway
-  - Github + GitHub Flow + GitHub Actions
-  - Github Actions - JUnit + AssertJ + Spotless + Spotbugs + Jacoco
-  - Github Release with Zip compression release.
+- Layered architecture with clear separation of concerns (UI, Controller, Service, DAO, Model).
+- Java 25 Full JDK Bellsoft Liberica - JavaFX for UI, JDBC for database access.
+- Maven for build and dependency management.
+- Maven + JavaFx plugin for running the app.
+- SQLite JDBC + Flyway for database and migrations.
+- BCrypt for password hashing.
+- Github + GitHub Flow + GitHub Actions for version control and CI/CD.
+- Github Actions - JUnit + AssertJ + Spotless + Spotbugs + Jacoco for CI pipeline.
+- jpackage for packaging the app into an executable.
+- Github Release with Zip compression release.
 
+**refer to the [Architecture_Records](docs/Architecture_Records.md) for more detailed information about the architectural decisions made during the development of the project.**
+
+## Application Flow
+
+**Simple Application Flow - UI and Backend interaction flow diagram. This is a simplified version of the actual flow, but it gives you an idea of how the different components of the application interact with each other.**
+
+![alt text](/.github/code_diagrams/Simple_Application_Flow.png)
 
 ## Roles
 
-- **FRONTEND** - ./src/main/resources and also ./src/main/java/Controller responsible for JavaFX screens, layout composition, styling, fxml and css editing, and the overall user experience.
-- **BACKEND** - ./src/main/java responsible for database access, business rules, validation, frontend and backend connection, and application state management.
+- **FRONTEND** - ./src/main/resources and also some of the ./src/main/java/controller folders responsible for JavaFX screens, layout composition, styling, fxml and css editing, and the overall user experience.
+- **BACKEND** - ./src/main/java and ./src/main/java/controller folders responsible for database access, business rules, validation, frontend and backend connection, and application state management.
 
 Controllers act as the bridge between these two areas, translating user actions into backend operations and updating the UI with the results.
 
-## Prerequisites
+## Quick Start
 
 - **Git** For version control (if you don't have this, run this commands below.)
   - Run this command below with windows `powershell`
@@ -52,7 +91,7 @@ Controllers act as the bridge between these two areas, translating user actions 
   $env:JAVA_HOME
   ```
 
-  at "$env:JAVA_HOME" if you don't see atleast "\BellSoft\LibericaJDK-25-Full" please restart your computer.
+  at "$env:JAVA_HOME" if you don't see at least "\BellSoft\LibericaJDK-25-Full" please restart your computer.
 
 - **VSCode** for text editor + easy source control where you don't have to use git commands.
   - Run this command below with windows `powershell`
@@ -60,11 +99,9 @@ Controllers act as the bridge between these two areas, translating user actions 
   winget install --id Microsoft.VisualStudioCode -e --source winget
   ```
 
-## Maven Wrapper via CLI (Powershell/Linux)
+If you use Command prompt, you could use `mvnw.cmd` instead of `./mvnw` or `.\mvnw` Windows Powershell.
 
 Use these commands when developing locally:
-
-If you use Command prompt, you could use `mvnw.cmd` instead of `./mvnw` or `.\mvnw` Windows Powershell.
 
 ```bash
 # This all you need for development.
@@ -76,66 +113,17 @@ If you use Command prompt, you could use `mvnw.cmd` instead of `./mvnw` or `.\mv
 ./mvnw clean verify
 ```
 
-## GitHub Flow with PR and Branching in VS Code
+**Automated tests run on every push on main via GitHub Actions. See Actions tab for results.**
 
-- **Technical Terms:**
-  - Commit - commit your changes / saves your latest staged changes
-  - Pull - fetches and integrates the latest changes from the remote repository into your current local branch.
-  - Push - uploads your local commits from the current branch to the remote repository.
-  - Branch - a working copy for this task. Why? that's how team manage and keep the `"main"` branch (where everybody based from) to be clean,nobody harms production, and ensure everyone is on the same page.
-  - PR - means pull request, where you pull from created branch to the main branch to `merge` the branch, making the code be part of the `main` branch. Why? because we can't just merge to main with any branch, we need to review it first before merging to main.
+**refer to the [Contributing Guide](docs/Contributing.md) for more detailed instructions on how to set up and contribute to the project.**
 
-1. Start from a clean `main` branch.
-   - In VS Code, open the **Source Control** view.
-   - Make sure there are no unfinished local changes before you begin.
-   - The "Pull Before You Push" Discipline:
-     1. Check group chat for claiming then claim yourself making sure no conflicts on agreed upon changes
-     2. Git checkout main -> git pull
-     3. Git checkout feature/my-task -> git merge main
-     4. Solve the conflicts locally.
+## Troubleshooting and Help
 
-2. Create a short-lived branch for the task.
-   - In the lower-left corner of VS Code, click the current branch name.
-   - Choose **Create new branch**.
-   - Use a focused branch name such as `feature/login-validation` or `fix/cart-total`.
+**GDrive Link:** https://drive.google.com/drive/folders/1a6pCo_QgS-lzT49429IeU90hzxB_QM2f
 
-3. Work only on the files needed for the change.
-   - Keep the effort centered on `src/main` so the change stays in the application code.
-   - Use the editor and the Source Control panel together so you can see exactly what changed.
-   - Review the diff often to catch accidental edits early.
+- Contains the latest backup of the project files, including vidoe demo, ERD Diagrams Pictures, Application Flow Diagrams, and any other relevant materials. This is a backup in case you have trouble running the project locally.
 
-4. Stage only the intended files.
-   - Use the `+` icon next to a file to stage it.
-   - If only part of a file should be included, stage carefully and keep the commit limited to the relevant work.
-
-5. Write a clear commit message and commit from VS Code.
-   - Enter a message that describes the change, such as `fix: login button validation`.
-     1. `feat` - Feature - Adds new functionality to the application.
-     2. `fix` - Bug Fix - Patches a bug in the codebase.
-     3. `refactor` - Refactor - Changes code structure without fixing bugs or adding features.
-     4. `chore` - Maintenance - Updates build scripts, dependencies, or non-functional tasks.
-     5. `docs` - Documentation - Changes to documentation files (like README) or code comments.
-
-6. Push the branch and Validate CI/CD GitHub.
-   - Use **Publish Branch** or **Sync Changes** in VS Code to send the branch to the remote repository.
-   - If you see red/x mark (CI/CD) beside your commit changes, please address the issue using the logs inside and identify the problem.
-
-7. Open a pull request.
-   - Create the PR from GitHub or from the VS Code GitHub workflow if available.
-   - Use a title that matches the branch purpose, and describe what changed.
-
-8. Merge after review and successful validation.
-   - Merge only after the PR is approved and the build is green.
-   - Delete the branch after merge to keep the repository clean.
-
-9. Return to `main` and repeat for the next task.
-   - Switch back to `main` in VS Code with `git checkout main`.
-   - Pull the latest changes before starting the next branch with `git pull`.
-   - Run `git fetch --prune` to clean up any deleted branches from the remote repository.
-   - Delete the local branch after merge to keep your workspace clean: `git branch -d feature/my-task`.
-   - Repeat the same flow for each new feature or fix.
-
----
+- Refer to all documents, I know it’s a lot, but it’s all there. If you can’t find it, ask in the group chat.
 
 ## Engineering Standards 101
 
@@ -144,8 +132,14 @@ If you use Command prompt, you could use `mvnw.cmd` instead of `./mvnw` or `.\mv
 3. Search for resources you could find, if having trouble. Prompt a Cheat sheet of what you need to know for a concise summary.
 4. Follow best coding principles
    - DRY (Don’t Repeat Yourself): If you find yourself copying and pasting the same code in two or more places, stop and find a better way. (eg. Functions)
+   - KISS (Keep It Simple, Stupid): The simplest solution is often the best. Avoid unnecessary complexity.
+   - YAGNI (You Ain't Gonna Need It): Don’t add features until you actually need them. Focus on the core functionality first.
    - Security: Ensure you don't leave any cracks for the hacker to exploit.
    - Readability: Descriptive naming and simple structure make code easier for others to understand.
    - Maintainability: Well-structured code simplifies our future.
 
 ---
+
+### License
+
+> Feel free to use this code as a reference for your own projects, but please do not copy-paste it directly. Always review and adapt the code to fit your specific use case and requirements. This project is intended for educational purposes and to demonstrate architectural patterns and best practices in Java desktop application development.

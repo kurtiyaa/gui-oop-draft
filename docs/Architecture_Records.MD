@@ -1,26 +1,9 @@
-# Technical Details
+# Architecture Records
 
-> This document is intended for technical understanding of how the project is built, validated, reviewed, and released.  
+> This document records the architectural decisions made during the development of the project.
 > It is not part of the application runtime logic.
 
 ---
-
-## Overview
-
-This project relies on a focused DevOps toolchain to keep development, validation, review, and release consistent.
-
-## Application Flow
-
-1. UI: JavaFX screens and user interactions
-2. Controller: Translates UI events into backend operations and updates the UI with results.
-3. Service: Contains business logic and rules, orchestrating operations between the UI and data access
-4. DAO: Handles database interactions, isolating persistence logic from business logic.
-5. Model: Plain data objects representing entities in the application (e.g., User, Product).
-6. Database: SQLite for local data storage, accessed via JDBC.
-
-UI <-> Controller <-> Service <-> DAO <-> Model -> DB.
-|
-<--------------------------------------------
 
 ## Constraints and Assumptions
 
@@ -31,7 +14,7 @@ UI <-> Controller <-> Service <-> DAO <-> Model -> DB.
 - Peers are expected to code and leader is to be managing the architectural system integrity and alternate peer code reviews.
 - We will present the app live in class with my laptop offline.
 
-## Why's of Architectural decision + Software Design Pattern
+## The Why's of Architecture Decision + Software Design Pattern
 
 - **Monorepo:** Stores all project parts in one repository, making dependency/version alignment, cross-module refactors, and shared standards easier for the whole team.
 - **Layered Monolith:** Keeps deployment simple as one application while still separating features into clear layers, so the codebase stays maintainable.
