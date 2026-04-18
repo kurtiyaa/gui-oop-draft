@@ -24,7 +24,6 @@ public class LoginController { // Class name in 'P'ascal'C'ase
       // Your code here
    }
    // ...
-   }
 }
 
 ```

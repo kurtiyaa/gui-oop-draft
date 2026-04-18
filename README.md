@@ -17,7 +17,7 @@ An academic team project developed on GitHub to showcase a polished E-Commerce J
 
 ## Demo Application Usage Example (Not Development Environment)
 
-The github releases page contains the latest release of the project. You can download zip file of the app-image of the latest release and run the executable file to run the project and can be run without needing to download java.
+The GitHub releases page contains the latest release of the project. You can download zip file of the app-image of the latest release and run the executable file to run the project and can be run without needing to download java.
 
 - Run the executable file in the downloaded zip file.
 - The app will open with the login screen. You can register a new account or login with an existing account.
