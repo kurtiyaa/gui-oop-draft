@@ -7,9 +7,6 @@
 1. Simple Application Flow
    - This diagram illustrates the flow of the application, showing how the different layers (UI, Controller, Service, DAO, Model) interact with each other and with the database.
 
-Simple Application Flow
-![alt text](/.github/code_diagrams/Simple_Application_Flow.png)
-
 ```mermaid
 ---
 config:
@@ -35,9 +32,6 @@ flowchart LR
 
 2. Checklist Mind Map
    - This diagram represents the checklist of architectural and design considerations that were taken into account during the development of the project. It serves as a reminder of the key principles and best practices that guided the architectural decisions.
-
-Checklist Mind Map
-![alt text](/.github/code_diagrams/Checklist_Mind_Map.png)
 
 ```mermaid
 mindmap
@@ -91,9 +85,6 @@ mindmap
 3. ERD v1
    - This diagram shows the Entity-Relationship Diagram (ERD) of the database schema, illustrating the tables, their attributes, and the relationships between them.
 
-Entity Relationship Diagram
-![alt text](/.github/code_diagrams/ERD_V1.png)
-
 ```mermaid
 erDiagram
     users {
@@ -127,9 +118,6 @@ erDiagram
 
 4. Mermaid GHA Workflow Diagram
    - This diagram represents the GitHub Actions workflow for the CI/CD pipeline, showing the different jobs and steps that are executed when code is pushed to the repository.
-
-Mermaid Diagrams
-![alt text](/.github/code_diagrams/Mermaid_Workflow.png)
 
 Refer to .github/workflows/ci.yml for the actual workflow file.
 
