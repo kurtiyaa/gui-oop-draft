@@ -1,6 +1,6 @@
-# Technical Details
+# Architecture Records
 
-> This document is intended for technical understanding of how the project is built, validated, reviewed, and released.  
+> This document records the architectural decisions made during the development of the project.
 > It is not part of the application runtime logic.
 
 ---
@@ -23,9 +23,9 @@
 ## Why's of Tools and Frameworks used
 
 - **Java 25 LTS (Liberica Full)** - A full JDK distribution for complete development, not a stripped-down runtime. Java 25 LTS is modern and stable for long-term development.
-- **JavaFX** - Modern and popular desktop UI framework with many available learning resources.
+- **JavaFX** - Modern and popular desktop UI framework with many available learning resources. Uses a declarative approach to UI design, which can be easier for non-technical team members to understand and contribute to and uses css for styling.
 - **Maven** - Chosen for simplicity and predictability. It ensures every developer uses the exact same dependencies.
-- **SQLite + JDBC** - Best for a local, simplified + embedded, and portable database setup. JDBC is used because Java needs a compatible driver to interact with SQLite. **Con:** less feature-rich than PostgreSQL. Not ideal for multi-user or complex relational data, but sufficient for this project’s scope.
+- **SQLite + JDBC** - Best for a local, simplified + embedded, and portable database setup. JDBC is used because Java needs a compatible driver to interact with SQLite. Using MySql or Postgres require additional setup and complexity. **Con:** less feature-rich than PostgreSQL. Not ideal for multi-user or complex relational data, but sufficient for this project’s scope.
 - **GitHub** - Strong platform for team collaboration, version control, and sharing the codebase.
 - **GitHub Flow** - **Pros:** clean, maintainable, and reliable workflow; enforces code reviews and protects `main` from bad commits. **Con:** may be too technical for non-technical teammates.
 - **GitHub Actions** - Integrated with GitHub, easy to set up, and useful for automated testing and CI.
