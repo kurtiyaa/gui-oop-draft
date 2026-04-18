@@ -2,35 +2,46 @@
 
 ## Quick Start and Prerequisites
 
-- See the README.md for how to set up and run the project.
+- Run these command below with windows `powershell`
+
+```ps1
+   winget install --id Git.Git -e --source winget
+
+  winget install --id BellSoft.LibericaJDK.25.Full -e --source winget
+
+  $env:JAVA_HOME
+
+  winget install --id Microsoft.VisualStudioCode -e --source winget
+```
+
+## Cloning the Repository and Running the Project Locally
+
+1. Open your terminal (Command Prompt, PowerShell, or Git Bash).
+2. Navigate to the directory where you want to clone the repository then run:
+
+```bash
+git clone https://github.com/notseekeru/gui-oop-draft.git
+cd gui-oop-draft
+```
+
+3. Open the project in VS Code:
+
+```bash
+code .
+```
+
+4. Run the project using Maven:
+
+```bash
+./mvnw clean javafx:run
+./mvnw clean verify
+```
 
 ## Your Task and Responsibilities
 
 - Each team member will be assigned specific features or components to work on (e.g., login functionality, product listing, cart management).
 - You are responsible for implementing your assigned features according to the project.
 - Refer to the [Example_Code](docs/Example_Code.md) for examples of how to structure your code according to the layered architecture we discussed.
-
-## Code Conventions (How to Write Code)
-
-- Use **camelCase** for variables and methods.
-- Use **PascalCase** for class names.
-  **Example:**
-
-```java
-public class LoginController { // Class name in 'P'ascal'C'ase
-   private String userName; // Variable name in camel'C'ase
-
-   public void checkLogin() { // Method name in camel'C'ase
-      // Your code here
-   }
-   // ...
-}
-
-```
-
-If unsure, copy the style of existing code.
-
----
 
 ## GitHub Flow (How We Work — VS Code Only)
 
@@ -83,6 +94,12 @@ If unsure, copy the style of existing code.
 ---
 
 ## Troubleshooting & Common Mistakes
+
+### Set up issues or can’t run the project?
+
+- **GDrive Link:** https://drive.google.com/drive/folders/1a6pCo_QgS-lzT49429IeU90hzxB_QM2f
+
+* Contains the latest backup of the project files, including video demo, and tutorials or just want a clear understanding on what to do. This is a backup in case you have trouble running the project locally.
 
 ### Failsafe: Accidentally Committed to Main and not to another branch?
 

@@ -40,7 +40,7 @@
 
 ## Application Requirements
 
-> This checklist outlines the minimum viable product (MVP) features and additional optional features for the application, as well as security and validation requirements to ensure a robust and secure application.
+> This checklist outlines the minimum viable product (MVP) features and additional optional features for the application.
 
 ### MVP - Minimum Viable Product (Required)
 
