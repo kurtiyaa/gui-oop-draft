@@ -7,8 +7,11 @@
 1. Simple Application Flow
    - This diagram illustrates the flow of the application, showing how the different layers (UI, Controller, Service, DAO, Model) interact with each other and with the database.
 
+Simple Application Flow
+![alt text](/.github/code_diagrams/Simple_Application_Flow.png)
+
 ```mermaid
-    ---
+---
 config:
   layout: elk
 ---
@@ -32,6 +35,9 @@ flowchart LR
 
 2. Checklist Mind Map
    - This diagram represents the checklist of architectural and design considerations that were taken into account during the development of the project. It serves as a reminder of the key principles and best practices that guided the architectural decisions.
+
+Checklist Mind Map
+![alt text](/.github/code_diagrams/Checklist_Mind_Map.png)
 
 ```mermaid
 mindmap
@@ -85,6 +91,9 @@ mindmap
 3. ERD v1
    - This diagram shows the Entity-Relationship Diagram (ERD) of the database schema, illustrating the tables, their attributes, and the relationships between them.
 
+Entity Relationship Diagram
+![alt text](/.github/code_diagrams/ERD_V1.png)
+
 ```mermaid
 erDiagram
     users {
@@ -114,4 +123,50 @@ erDiagram
     users ||--o{ cart_items : contains
     products ||--o{ cart_items : contains
     categories ||--o{ products : contains
+```
+
+4. Mermaid GHA Workflow Diagram
+   - This diagram represents the GitHub Actions workflow for the CI/CD pipeline, showing the different jobs and steps that are executed when code is pushed to the repository.
+
+Mermaid Diagrams
+![alt text](/.github/code_diagrams/Mermaid_Workflow.png)
+
+Refer to .github/workflows/ci.yml for the actual workflow file.
+
+```mermaid
+---
+config:
+  layout: fixed
+---
+flowchart LR
+    A["Start: Trigger"] --> B["Setup Node"]
+    B --> C["Pull Docker"]
+    C --> D{"Files found?"}
+    D -- No --> E["Skip"]
+    D -- Yes --> G1["Gen PNGs"]
+    E --> H["End"]
+    G1 --> G2["Clean"]
+    G2 --> I{"Same repo?"}
+    I -- No --> H
+    I -- Yes --> J["Commit/Push"]
+    J --> K["Resolve"]
+    K --> H
+    n1["WORK FLOW OF MERMAID GITHUB ACTIONS YML"]
+
+    n1@{ shape: text}
+     A:::process
+     B:::process
+     C:::process
+     D:::decision
+     E:::process
+     G1:::process
+     H:::endNode
+     G2:::process
+     I:::decision
+     J:::process
+     K:::process
+    classDef process stroke:#818cf8,fill:#eef2ff
+    classDef decision stroke:#fb923c,fill:#fff7ed
+    classDef endNode stroke:#f87171,fill:#fef2f2
+    style A stroke:#00C853
 ```

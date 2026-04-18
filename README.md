@@ -60,6 +60,12 @@ The github releases page contains the latest release of the project. You can dow
 
 **refer to the [Architecture_Records](docs/Architecture_Records.md) for more detailed information about the architectural decisions made during the development of the project.**
 
+## Application Flow
+
+**Simple Application Flow - UI and Backend interaction flow diagram. This is a simplified version of the actual flow, but it gives you an idea of how the different components of the application interact with each other.**
+
+![alt text](/.github/code_diagrams/Simple_Application_Flow.png)
+
 ## Roles
 
 - **FRONTEND** - ./src/main/resources and also ./src/main/java/Controller responsible for JavaFX screens, layout composition, styling, fxml and css editing, and the overall user experience.
