@@ -21,6 +21,7 @@ jobs:
       - name: Clear npm cache
         run: npm cache clean --force
 
+      # Remind me to use Python Scripting instead of bash
       - name: Generate and clean Mermaid diagrams (Docker)
         run: |
           set -e

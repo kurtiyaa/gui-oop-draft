@@ -14,7 +14,7 @@
 - Peers are expected to code and leader is to be managing the architectural system integrity and alternate peer code reviews.
 - We will present the app live in class with my laptop offline.
 
-## Why's of Architectural decision + Software Design Pattern
+## The Why's of Architecture Decision + Software Design Pattern
 
 - **Monorepo:** Stores all project parts in one repository, making dependency/version alignment, cross-module refactors, and shared standards easier for the whole team.
 - **Layered Monolith:** Keeps deployment simple as one application while still separating features into clear layers, so the codebase stays maintainable.

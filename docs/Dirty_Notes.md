@@ -1,5 +1,3 @@
-# Java Desktop application with database finals project overdelivery \& overengineered to impress (professor) and progress
-
 > This document is intended for drafted architectural decision of how the project is planned, built, and decided. This is a unstructured "brain dump" of all the thoughts, ideas, and decisions that went into the project. It is not meant to be a polished document, but rather a raw record of the architectural process.
 > It is not part of the application runtime logic.
 > Do not rate this and ignore this.

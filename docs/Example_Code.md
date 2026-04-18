@@ -13,7 +13,7 @@
 5. Model: Plain data objects representing entities in the application (e.g., User, Product).
 6. Database: SQLite for local data storage, accessed via JDBC.
 
-### WFolder Structure (ASCII Diagram)
+### Folder Structure (ASCII Diagram)
 
 ```
 src
