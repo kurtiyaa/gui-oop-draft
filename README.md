@@ -69,7 +69,7 @@ The github releases page contains the latest release of the project. You can dow
 ## Roles
 
 - **FRONTEND** - ./src/main/resources and also some of the ./src/main/java/controller folders responsible for JavaFX screens, layout composition, styling, fxml and css editing, and the overall user experience.
-- **BACKEND** - ./src/main/java folders responsible for database access, business rules, validation, frontend and backend connection, and application state management.
+- **BACKEND** - ./src/main/java and ./src/main/java/controller folders responsible for database access, business rules, validation, frontend and backend connection, and application state management.
 
 Controllers act as the bridge between these two areas, translating user actions into backend operations and updating the UI with the results.
 
