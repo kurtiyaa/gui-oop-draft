@@ -1,0 +1,66 @@
+name: Generate Mermaid Diagrams
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-mermaid:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Clear npm cache
+        run: npm cache clean --force
+
+      # Remind me to use Python Scripting instead of bash
+      - name: Generate and clean Mermaid diagrams (Docker)
+        run: |
+          set -e
+          shopt -s nullglob
+          mmd_files=(.github/code_diagrams/*.mmd)
+          if [ ${#mmd_files[@]} -eq 0 ]; then
+            echo "No Mermaid files found. Skipping generation."
+            exit 0
+          fi
+          # Pull the official Mermaid CLI Docker image
+          docker pull minlag/mermaid-cli:latest
+          # Generate diagrams and log errors per file using Docker
+          for file in "${mmd_files[@]}"; do
+            out_file="${file%.mmd}.png"
+            if ! docker run --rm -u $(id -u):$(id -g) -v "$PWD/.github/code_diagrams:/data" minlag/mermaid-cli:latest -i "$(basename "$file")" -o "$(basename "$out_file")"; then
+              echo "Failed to generate diagram for $file" >&2
+            fi
+          done
+          # Clean up orphaned .png files
+          for png in .github/code_diagrams/*.png; do
+            mmd="${png%.png}.mmd"
+            if [ ! -f "$mmd" ]; then
+              echo "Removing orphaned diagram $png"
+              rm "$png"
+            fi
+          done
+      - name: Commit and push generated diagrams
+        if: github.event.pull_request.head.repo.full_name == github.repository || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: |
+          set -e
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            git add .github/code_diagrams/*.png || true
+            git commit -m "Auto-generate Mermaid diagrams [skip ci]" || echo "No changes to commit"
+          # Try to pull and rebase, handle conflicts gracefully
+          if ! git pull --rebase --autostash; then
+            echo "Git pull failed, possible conflict. Skipping push."
+            exit 0
+          fi
+          git push || echo "Push failed, possibly due to branch protection or permissions."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,10 +1,18 @@
 # System Checklist
 
+> A Roadmap of architectural and design considerations for the project. This checklist serves as a reminder of the key principles and best practices that guided linearly for organized the development process.
+
 ## System Requirements
+
+> This checklist outlines the architectural principles, technology stack, and application requirements for the project.
 
 ### Project Setup
 
+- [ ] Readme file created with project overview and needed documentation.
+- [ ] Layered Monolith project structure diagram created to outline the organization of the codebase. and how the different layers (UI, Controller, Service, DAO, Model) interact with each other.
+- [ ] ER Diagram created to visualize the database schema and relationships between entities.
 - [ ] Github main protected branch with required PR reviews and status checks.
+- [ ] GitHub Actions workflow set up for CI with JUnit, AssertJ, Spotless, SpotBugs, and Jacoco.
 - [ ] Maven wrapper configured for consistent build and dependency management across all environments.
 - [ ] JavaFX dependencies properly set up in the Maven `pom.xml` file.
 
@@ -20,13 +28,24 @@
 - [ ] GitHub Flow for version control and collaboration.
 - [ ] GitHub Actions for CI with JUnit, AssertJ, Spotless, SpotBugs, and Jacoco.
 - [ ] jpackage for packaging the application for distribution.
+- [ ] Mermaid diagrams for visual documentation of architecture and design decisions.
+
+### Security and Validation
+
+- [ ] Input Validation: Ensure all user inputs are validated on to prevent invalid data and potential security vulnerabilities such as SQL Injection. Use `prepared statements` for all database interactions.
+- [ ] Password Hashing: Use BCrypt to securely `hash and salt` user passwords before storing them in the database.
+- [ ] Error Handling: Implement comprehensive `error handling` to gracefully handle exceptions and provide user-friendly error messages.
+- [ ] Immutable Data Structures: Use immutable data structures where we don't want other data such as username to be changed after creation, only password can be updated only via `SQL update statement`, not by getter/setter methods.
+- [ ] Test Coverage: Aim for high test coverage with unit tests for all service and DAO methods, SQL Injection tests, and integration tests for critical user flows (e.g., registration, login, checkout).
 
 ## Application Requirements
+
+> This checklist outlines the minimum viable product (MVP) features and additional optional features for the application.
 
 ### MVP - Minimum Viable Product (Required)
 
 - [ ] Session Context: The application should maintain a session context to track the logged-in user and their interactions across different screens.
-- [ ] Login Screen with username and password fields, and a login button.
+- [ ] Login Screen with username and password fields, and a login button. The login process should validate the credentials against the database and establish a session context upon successful authentication.
 - [ ] Registration Screen with username, password, confirm password fields, and a register button.
 - [ ] Main Screen with a list of items with an add to cart button and a logout button.
 - [ ] Cart Screen with a list of items that have been added to the cart, quantity selectors, and a checkout button.
@@ -45,10 +64,3 @@
 - [ ] Payment methods: Support fake multiple payment options eg. Credit Card, Cash on Delivery, GCash, etc. (no real payment processing needed).
 - [ ] Order History: A screen where users can view their past orders and details.
 - [ ] User Profile: A screen where users can view and edit their profile information, such as email and password.
-
-### Security and Validation
-
-- [ ] Input Validation: Ensure all user inputs are validated on to prevent invalid data and potential security vulnerabilities such as SQL Injection. Use `prepared statements` for all database interactions.
-- [ ] Password Hashing: Use BCrypt to securely `hash and salt` user passwords before storing them in the database.
-- [ ] Error Handling: Implement comprehensive `error handling` to gracefully handle exceptions and provide user-friendly error messages.
-- [ ] Immutable Data Structures: Use immutable data structures where we don't want other data such as username to be changed after creation, only password can be updated only via `SQL update statement`, not by getter/setter methods.

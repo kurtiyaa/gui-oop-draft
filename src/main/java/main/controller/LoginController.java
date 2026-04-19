@@ -27,7 +27,7 @@ public class LoginController {
     private Button toggleBtn;
 
     private boolean isLoginMode = true;
-    private static final String DB_URL = "jdbc:sqlite:shop.db";
+    private static final String DB_URL = "jdbc:sqlite:shopfx.db";
 
     @FXML
     private void handlePrimary() throws IOException {
