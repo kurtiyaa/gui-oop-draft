@@ -1,0 +1,35 @@
+---
+config:
+  layout: fixed
+---
+flowchart LR
+    A["Start: Trigger"] --> B["Setup Node"]
+    B --> C["Pull Docker"]
+    C --> D{"Files found?"}
+    D -- No --> E["Skip"]
+    D -- Yes --> G1["Gen PNGs"]
+    E --> H["End"]
+    G1 --> G2["Clean"]
+    G2 --> I{"Same repo?"}
+    I -- No --> H
+    I -- Yes --> J["Commit/Push"]
+    J --> K["Resolve"]
+    K --> H
+    n1["WORK FLOW OF MERMAID GITHUB ACTIONS YML"]
+
+    n1@{ shape: text}
+     A:::process
+     B:::process
+     C:::process
+     D:::decision
+     E:::process
+     G1:::process
+     H:::endNode
+     G2:::process
+     I:::decision
+     J:::process
+     K:::process
+    classDef process stroke:#818cf8,fill:#eef2ff
+    classDef decision stroke:#fb923c,fill:#fff7ed
+    classDef endNode stroke:#f87171,fill:#fef2f2
+    style A stroke:#00C853
