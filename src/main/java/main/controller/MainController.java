@@ -1,4 +1,6 @@
-package controller;
+package main.controller;
+
+import main.App;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,7 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import controller.MainController.Product;
+import main.controller.MainController.Product;
 
 public class MainController {
 

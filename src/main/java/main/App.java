@@ -1,4 +1,4 @@
-package controller;
+package main;
 
 import java.io.IOException;
 
@@ -24,7 +24,7 @@ public class App extends Application {
         stage.show();
     }
 
-    static void setRoot(String fxml) throws IOException {
+    public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
@@ -37,7 +37,7 @@ public class App extends Application {
         return parent;
     }
 
-    public static Object getController(){
+    public static Object getController() {
         return controller;
     }
 
