@@ -18,7 +18,8 @@
 ```
 src
 └── main
-        ├── java
+    └── java
+        ├── main
         │   ├── controller   // Controllers (e.g., LoginController.java)
         │   ├── dao          // DAOs (e.g., UserDAO.java)
         │   ├── service      // Services (e.g., AuthService.java)
@@ -37,17 +38,16 @@ src
 Only user interaction and display logic lives here.  
 _This is not runnable code. It’s an architectural pattern._
 
-```java
+```fxml
 // Layer: UI
-public class LoginView {
-    private final LoginController controller;
-
-    public LoginView(LoginController controller) {
-        this.controller = controller;
-        // Set up JavaFX UI components (TextFields, Buttons, etc.)
-        // Add event listeners that call controller.handleLogin(...)
-    }
-}
+    <HBox spacing="12" alignment="CENTER">
+        <!-- Primary button for login or registration going to the main app -->
+        <Button fx:id="primaryBtn" text="Login"
+            onAction="#handlePrimary" prefWidth="131" />
+        <!-- Toggle button to switch between login and registration modes -->
+        <Button fx:id="toggleBtn" text="Register"
+            onAction="#handleToggle" prefWidth="131" />
+    </HBox>
 ```
 
 ---
@@ -166,8 +166,7 @@ CREATE TABLE users (
 );
 ```
 
-_Note: Use prepared statements for all database interactions to prevent SQL injection._
-
+**Note: Use prepared statements for all database interactions to prevent SQL injection.**
 
 ## Engineering Standards 101
 
